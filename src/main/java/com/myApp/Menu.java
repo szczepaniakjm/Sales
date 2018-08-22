@@ -40,6 +40,7 @@ public class Menu {
                     System.out.println("WRONG NUMBER");
 
         }
+        repeat();
     }
     private int showBasicOperation() {
         System.out.println("Operation:\n"
@@ -200,6 +201,14 @@ public class Menu {
                 System.out.println("WRONG OPERATION NUMBER");
         }
 
+    }
+
+    //DO POPRAWY
+    public void repeat(){
+        System.out.println("Press 1 to continue or any other key to finish");
+        if (MyScanner.getString().equals(1)){
+            showMainMenu();
+        }
     }
 
     public void mainMenu() {

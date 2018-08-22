@@ -84,9 +84,12 @@ public class CategoryDaoImp implements CategoryDao {
                 System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI CATEGORY O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
             }
         }
+        if(!categoryOp.isPresent()){
+            System.out.println("WRONG ID - NO CATEGORY");
+        }
+        else System.out.println(categoryOp.toString());
         //uwaga - moze zwracac Optional.empty
         return categoryOp;
-
     }
 
     @Override

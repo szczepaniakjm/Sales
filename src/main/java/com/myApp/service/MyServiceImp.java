@@ -88,7 +88,7 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void findOneCategoryByID(Integer integer) {
-        System.out.println(categoryDao.findOne(integer));
+        categoryDao.findOne(integer);
     }
 
     @Override
