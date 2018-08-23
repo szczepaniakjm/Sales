@@ -92,6 +92,10 @@ public class CustomerDaoImp implements CustomerDao {
                 System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI CUSTOMER O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
+        if(!customerOp.isPresent()){
+            System.out.println("WRONG ID - NO CUSTOMER");
+        }
+        else System.out.println(customerOp.toString());
         return customerOp;
     }
 

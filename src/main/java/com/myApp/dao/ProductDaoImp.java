@@ -98,6 +98,10 @@ public class ProductDaoImp implements ProductDao {
                 System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI ORDERTAB O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
+        if(!product.isPresent()){
+            System.out.println("WRONG ID - NO PRODUCT");
+        }
+        else System.out.println(product.toString());
         return product;
     }
 

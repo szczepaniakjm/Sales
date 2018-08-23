@@ -203,10 +203,9 @@ public class Menu {
 
     }
 
-    //DO POPRAWY
     public void repeat(){
         System.out.println("Press 1 to continue or any other key to finish");
-        if (MyScanner.getString().equals(1)){
+        if (MyScanner.getString().compareTo("1") == 0){
             showMainMenu();
         }
     }

@@ -93,6 +93,10 @@ public class OrderTabDaoImp implements OrderTabDao {
                 System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI ORDERTAB O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
+        if(!orderTab.isPresent()){
+            System.out.println("WRONG ID - NO ORDERTAB");
+        }
+        else System.out.println(orderTab.toString());
         return orderTab;
     }
 

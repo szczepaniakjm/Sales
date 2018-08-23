@@ -88,7 +88,6 @@ public class CategoryDaoImp implements CategoryDao {
             System.out.println("WRONG ID - NO CATEGORY");
         }
         else System.out.println(categoryOp.toString());
-        //uwaga - moze zwracac Optional.empty
         return categoryOp;
     }
 

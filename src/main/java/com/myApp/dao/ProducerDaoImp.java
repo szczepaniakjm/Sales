@@ -89,6 +89,10 @@ public class ProducerDaoImp implements ProducerDao {
                 System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI PRODUCER O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
+        if(!producer.isPresent()){
+            System.out.println("WRONG ID - NO PRODUCER");
+        }
+        else System.out.println(producer.toString());
         return producer;
     }
 

@@ -84,6 +84,10 @@ public class CountryDaoImp implements CountryDao {
                 System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI COUNTRY O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
+        if(!countryOp.isPresent()){
+            System.out.println("WRONG ID - NO COUNTRY");
+        }
+        else System.out.println(countryOp.toString());
         return countryOp;
     }
 
