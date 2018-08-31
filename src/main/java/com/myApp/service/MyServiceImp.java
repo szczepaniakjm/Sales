@@ -1,11 +1,9 @@
 package com.myApp.service;
 
-import com.myApp.connection.DbStatus;
 import com.myApp.dao.*;
 import com.myApp.model.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MyServiceImp implements MyService {
@@ -16,13 +14,11 @@ public class MyServiceImp implements MyService {
     CategoryDao categoryDao = new CategoryDaoImp();
     ProducerDao producerDao = new ProducerDaoImp();
 
-    //      1. Wypisac produkty posortowane wedlug ilosc zlozonych zamowien dlaich produktow malejaco
+    //Wypisuje produkty posortowane wedlug ilosc zlozonych zamowien dla ich produktow malejaco
     @Override
     public List<Product> listaZamowien() {
 
- //        List<OrderTab> orderTabList =
-                 orderTabDao
-
+                 orderTabDao//bierzemy productId, zliczamy, sortujemy i wypisujemy nazwe
                  .findAll()
                  .stream()                                        //id - ile
                  .collect(Collectors.groupingBy(OrderTab::getProductId, Collectors.counting())) //TU JEST MAPA
@@ -35,10 +31,10 @@ public class MyServiceImp implements MyService {
                  .forEach((x,y)-> System.out.println(x +" === "+y))
                  ;
                  return null;
-//bierzemy productId, zliczamy, sortujemy i wypisujemy nazwe
+
     }
 
-    //  2. Wypisac kraje posortowane malejaco wedlug ilosci klientow ktorzy z tych krajow pochodza
+    //Wypisuje kraje posortowane malejaco wedlug ilosci klientow ktorzy z tych krajow pochodza
     @Override
     public void skadKlienci() {
       //  Map<Integer, Long> m1 =
@@ -52,23 +48,6 @@ public class MyServiceImp implements MyService {
                 .map(p->p.getKey())
                 .map(a->countryDao.findOne(a).orElseThrow(() -> new NullPointerException()).getName())
                 .forEach(x -> System.out.println(x));
-            //    .collect(Collectors.toList());
-    }
-
-
-    //      3. Wypisac nazwe klienta ktory wydal najwiecej na zakupy
-    //OrderTab: klient, produkt i discount
-    //dla customerId bierzemy Produkt.price po productId, * discount
-    @Override
-    public Optional<Customer> najwiecejWydal() {
-/*
-        orderTabDao.findAll()
-                .stream()
-                .collect(Collectors.groupingBy(OrderTab::getCustomerId).//.productDao.findOne(OrderTab::getProductId)););
-                ;
-
- */               
-        return Optional.empty();
     }
 
     @Override
@@ -83,7 +62,11 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void deleteCategory(Integer integer) {
+        long n1 = categoryDao.findAll().stream().count();
         categoryDao.delete(integer);
+        long n2 = categoryDao.findAll().stream().count();
+        if (n1 > n2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
     }
 
     @Override
@@ -109,7 +92,11 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void deleteCountry(Integer integer) {
+        long n1 = countryDao.findAll().stream().count();
         countryDao.delete(integer);
+        long n2 = countryDao.findAll().stream().count();
+        if (n1 > n2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
     }
 
     @Override
@@ -133,7 +120,11 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void deleteCustomer(Integer integer) {
+        long n1 = customerDao.findAll().stream().count();
         customerDao.delete(integer);
+        long n2 = customerDao.findAll().stream().count();
+        if (n1 > n2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
     }
 
     @Override
@@ -158,7 +149,11 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void deleteOrderTab(Integer integer) {
+        long n1 = orderTabDao.findAll().stream().count();
         orderTabDao.delete(integer);
+        long n2 = orderTabDao.findAll().stream().count();
+        if (n1 > n2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
     }
 
     @Override
@@ -183,7 +178,11 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void deleteProducer(Integer integer) {
+        long n1 = producerDao.findAll().stream().count();
         producerDao.delete(integer);
+        long n2 = producerDao.findAll().stream().count();
+        if (n1 > n2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
     }
 
     @Override
@@ -208,7 +207,11 @@ public class MyServiceImp implements MyService {
 
     @Override
     public void deleteProduct(Integer integer) {
+        long number1 = productDao.findAll().stream().count();
         productDao.delete(integer);
+        long number2 = productDao.findAll().stream().count();
+        if (number1 > number2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
     }
 
     @Override

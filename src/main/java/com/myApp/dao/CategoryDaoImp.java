@@ -45,11 +45,18 @@ public class CategoryDaoImp implements CategoryDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlDelete)) {
             prep.setInt(1, id);
             prep.execute();
-            System.out.println("DELETED SUCCESSFULLY");
+
         } catch (SQLException e) {
             System.err.println("BLAD PODCZAS WIERSZA WIERSZA Z TABELI CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
                  }
     }
+    /*
+            long number1 = productDao.findAll().stream().count();
+        productDao.delete(integer);
+        long number2 = productDao.findAll().stream().count();
+        if (number1 > number2) System.out.println("DELETED SUCCESSFULLY");
+        else System.out.println("UNABLE TO DELETE");
+    */
 
     @Override
     public Optional<Category> findOne(Integer id) {

@@ -52,7 +52,6 @@ public class ProductDaoImp implements ProductDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlDelete)) {
             prep.setInt(1, id);
             prep.execute();
-            System.out.println("DELETED SUCCESSFULLY");
         } catch (SQLException e) {
             System.err.println("BLAD PODCZAS WIERSZA WIERSZA Z TABELI PRODUCT " +
                     "[ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");

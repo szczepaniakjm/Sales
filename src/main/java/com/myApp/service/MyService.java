@@ -8,7 +8,6 @@ import java.util.Optional;
 public interface MyService {
     List<Product> listaZamowien();
     void skadKlienci();
-    Optional<Customer> najwiecejWydal();
 
     void addCategory(Category category);
     void updateCategory(Category category);
@@ -46,10 +45,4 @@ public interface MyService {
     void findOneProductByID(Integer integer);
     void findAllProducts();
 
-
 }
-//      1. Wypisac produkty posortowane wedlug ilosc zlozonych zamowien dlaich produktow malejaco
-//      2. Wypisac kraje posortowane malejaco wedlug ilosci klientow ktorzy z tych krajow pochodza
-//      3. Wypisac nazwe klienta ktory wydal najwiecej na zakupy
-//      4. Wypisac sredni wiek klientow ktorzy kupowali produkty producetna ktorego podasz jako argument - moze byc nazwa
-//         producetna i kiedy bedzie wiecej producentow o tej samej nazwie to user ma wybrac ktorego chce

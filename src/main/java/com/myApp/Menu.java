@@ -207,7 +207,7 @@ public class Menu {
         System.out.println("Press 1 to continue or any other key to finish");
         if (MyScanner.getString().compareTo("1") == 0){
             showMainMenu();
-        }
+        } else System.out.println("THANK YOU!");
     }
 
     public void mainMenu() {
