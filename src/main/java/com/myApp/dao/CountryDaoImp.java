@@ -20,7 +20,7 @@ public class CountryDaoImp implements CountryDao {
             prep.execute();
             System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS DODAWANIA WIERSZA DO TABELI COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE ADDING TO TABLE COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
 
@@ -33,7 +33,7 @@ public class CountryDaoImp implements CountryDao {
             prep.execute();
             System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS MODYFIKOWANIA WIERSZA W TABELI COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE MODIFYING IN TABLE COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
 
         }
     }
@@ -44,9 +44,8 @@ public class CountryDaoImp implements CountryDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlDelete)) {
             prep.setInt(1, id);
             prep.execute();
-            System.out.println("DELETED SUCCESSFULLY");
         } catch (SQLException e) {
-            System.err.println("BLAD PODCZAS WIERSZA WIERSZA Z TABELI COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE DELETING FROM TABLE COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
 
@@ -75,13 +74,13 @@ public class CountryDaoImp implements CountryDao {
             }
 
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI COUNTRY O ID = " + id + " [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE SELECTING FROM TABLE COUNTRY, ID = " + id + " [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         } finally {
             try {
                 prep.close();
                 resultSet.close();
             } catch (Exception e) {
-                System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI COUNTRY O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+                System.err.println("ERROR WHILE SELECTING FROM TABLE COUNTRY, ID = " + id + " WHILE CLOSING RESOURCES [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
         if(!countryOp.isPresent()){

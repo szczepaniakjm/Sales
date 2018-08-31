@@ -24,7 +24,7 @@ public class ProductDaoImp implements ProductDao {
             prep.execute();
             System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS DODAWANIA WIERSZA DO TABELI PRODUCT " +
+            System.err.println("ERROR WHILE ADDING TO TABLE PRODUCT " +
                     "[ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
@@ -41,7 +41,7 @@ public class ProductDaoImp implements ProductDao {
             prep.execute();
             System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS MODYFIKOWANIA WIERSZA W TABELI PRODUCT " +
+            System.err.println("ERROR WHILE MODIFYING IN TABLE PRODUCT " +
                     "[ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
@@ -53,7 +53,7 @@ public class ProductDaoImp implements ProductDao {
             prep.setInt(1, id);
             prep.execute();
         } catch (SQLException e) {
-            System.err.println("BLAD PODCZAS WIERSZA WIERSZA Z TABELI PRODUCT " +
+            System.err.println("ERROR WHILE DELETING FROM TABLE Z TABELI PRODUCT " +
                     "[ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
@@ -86,7 +86,7 @@ public class ProductDaoImp implements ProductDao {
             }
 
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI PRODUCT O ID = "
+            System.err.println("ERROR WHILE SELECTING FROM TABLE PRODUCT, ID = "
                     + id + " [ERROR MESSAGE: " + e.getMessage()
                     + ", ERROR CAUSE: " + e.getCause() +  " ]");
         } finally {
@@ -94,7 +94,7 @@ public class ProductDaoImp implements ProductDao {
                 prep.close();
                 resultSet.close();
             } catch (Exception e) {
-                System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI ORDERTAB O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+                System.err.println("ERROR WHILE SELECTING FROM TABLE ORDERTAB, ID = " + id + " WHILE CLOSING RESOURCES [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
         if(!product.isPresent()){

@@ -17,11 +17,11 @@ public class CategoryDaoImp implements CategoryDao {
     public void add(Category category) {
         final String sqlInsert = "INSERT INTO Category (name) VALUES (?)";
         try (PreparedStatement prep = connection.prepareStatement(sqlInsert)) {
-            prep.setString(1, category.getName());//numer znaku zapytania
+            prep.setString(1, category.getName());
             prep.execute();
             System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS DODAWANIA WIERSZA DO TABELI CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
+            System.err.println("ERROR WHILE ADDING TO TABLE CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
         }
 
     }
@@ -35,7 +35,7 @@ public class CategoryDaoImp implements CategoryDao {
             prep.execute();
             System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS MODYFIKOWANIA WIERSZA W TABELI CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
+            System.err.println("ERROR WHILE MODIFYING IN TABLE CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
         }
     }
 
@@ -45,18 +45,10 @@ public class CategoryDaoImp implements CategoryDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlDelete)) {
             prep.setInt(1, id);
             prep.execute();
-
         } catch (SQLException e) {
-            System.err.println("BLAD PODCZAS WIERSZA WIERSZA Z TABELI CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
+            System.err.println("ERROR WHILE DELETING FROM TABLE CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
                  }
     }
-    /*
-            long number1 = productDao.findAll().stream().count();
-        productDao.delete(integer);
-        long number2 = productDao.findAll().stream().count();
-        if (number1 > number2) System.out.println("DELETED SUCCESSFULLY");
-        else System.out.println("UNABLE TO DELETE");
-    */
 
     @Override
     public Optional<Category> findOne(Integer id) {
@@ -82,13 +74,13 @@ public class CategoryDaoImp implements CategoryDao {
             }
 
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI CATEGORY O ID = " + id + " [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
+            System.err.println("ERROR WHILE SELECTING FROM TABLE CATEGORY, ID = " + id + " [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
         } finally {
             try {
                 prep.close();
                 resultSet.close();
             } catch (Exception e) {
-                System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI CATEGORY O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
+                System.err.println("ERROR WHILE SELECTING FROM TABLE CATEGORY, ID = " + id + " WHILE CLOSING RESOURCES [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
             }
         }
         if(!categoryOp.isPresent()){

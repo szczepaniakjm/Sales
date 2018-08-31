@@ -22,7 +22,7 @@ public class ProducerDaoImp implements ProducerDao {
             prep.execute();
             System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS DODAWANIA WIERSZA DO TABELI PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE ADDING TO TABLE PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
 
@@ -37,7 +37,7 @@ public class ProducerDaoImp implements ProducerDao {
             prep.execute();
             System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS MODYFIKOWANIA WIERSZA W TABELI PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE MODIFYING IN TABLE PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
 
@@ -47,9 +47,8 @@ public class ProducerDaoImp implements ProducerDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlDelete)) {
             prep.setInt(1, id);
             prep.execute();
-            System.out.println("DELETED SUCCESSFULLY");
         } catch (SQLException e) {
-            System.err.println("BLAD PODCZAS WIERSZA WIERSZA Z TABELI PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE DELETING FROM TABLE PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
     }
 
@@ -80,13 +79,13 @@ public class ProducerDaoImp implements ProducerDao {
             }
 
         } catch (Exception e) {
-            System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI PRODUCER O ID = " + id + " [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+            System.err.println("ERROR WHILE SELECTING FROM TABLE PRODUCER, ID = " + id + " [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         } finally {
             try {
                 prep.close();
                 resultSet.close();
             } catch (Exception e) {
-                System.err.println("BLAD PODCZAS POBIERANA WIERSZA Z TABELI PRODUCER O ID = " + id + " PRZY ZAMYKANIU ZASOBOW [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
+                System.err.println("ERROR WHILE SELECTING FROM TABLE PRODUCER, ID = " + id + " WHILE CLOSING RESOURCES [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
             }
         }
         if(!producer.isPresent()){
