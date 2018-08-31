@@ -21,7 +21,6 @@ public class OrderTabDaoImp implements OrderTabDao {
             prep.setBigDecimal(3,orderTab.getDiscount());
             prep.setInt(4, orderTab.getQuantity());
             prep.execute();
-            System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE ADDING TO TABLE ORDERTAB [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
@@ -37,7 +36,6 @@ public class OrderTabDaoImp implements OrderTabDao {
             prep.setInt(4, orderTab.getQuantity());
             prep.setInt(5, orderTab.getId());
             prep.execute();
-            System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE MODIFYING IN TABLE ORDERTAB [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }

@@ -20,7 +20,6 @@ public class ProducerDaoImp implements ProducerDao {
             prep.setInt(2, producer.getCountryId());
             prep.setBigDecimal(3, producer.getBudget());
             prep.execute();
-            System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE ADDING TO TABLE PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
@@ -35,7 +34,6 @@ public class ProducerDaoImp implements ProducerDao {
             prep.setBigDecimal(3, producer.getBudget());
             prep.setInt(4, producer.getId());
             prep.execute();
-            System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE MODIFYING IN TABLE PRODUCER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }

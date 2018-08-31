@@ -18,7 +18,6 @@ public class CountryDaoImp implements CountryDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlInsert)) {
             prep.setString(1, country.getName());
             prep.execute();
-            System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE ADDING TO TABLE COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
@@ -31,7 +30,6 @@ public class CountryDaoImp implements CountryDao {
             prep.setString(1, country.getName());
             prep.setInt(2, country.getId());
             prep.execute();
-            System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE MODIFYING IN TABLE COUNTRY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
 

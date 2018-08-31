@@ -21,7 +21,6 @@ public class CustomerDaoImp implements CustomerDao {
             prep.setInt(3, customer.getAge());
             prep.setInt(4, customer.getCountryId());
             prep.execute();
-            System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE ADDING TO TABLE CUSTOMER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }
@@ -37,7 +36,6 @@ public class CustomerDaoImp implements CustomerDao {
             prep.setInt(4, customer.getCountryId());
             prep.setInt(5, customer.getId());
             prep.execute();
-            System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE MODIFYING IN TABLE CUSTOMER [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
         }

@@ -22,7 +22,6 @@ public class ProductDaoImp implements ProductDao {
             prep.setInt(3, product.getCategoryId());
             prep.setInt(4, product.getProducerId());
             prep.execute();
-            System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE ADDING TO TABLE PRODUCT " +
                     "[ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");
@@ -39,7 +38,6 @@ public class ProductDaoImp implements ProductDao {
             prep.setInt(4, product.getProducerId());
             prep.setInt(5, product.getId());
             prep.execute();
-            System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE MODIFYING IN TABLE PRODUCT " +
                     "[ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() +  " ]");

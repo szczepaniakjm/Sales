@@ -19,7 +19,6 @@ public class CategoryDaoImp implements CategoryDao {
         try (PreparedStatement prep = connection.prepareStatement(sqlInsert)) {
             prep.setString(1, category.getName());
             prep.execute();
-            System.out.println("ADDED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE ADDING TO TABLE CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
         }
@@ -33,7 +32,6 @@ public class CategoryDaoImp implements CategoryDao {
             prep.setString(1, category.getName());
             prep.setInt(2, category.getId());
             prep.execute();
-            System.out.println("UPDATED SUCCESSFULLY");
         } catch (Exception e) {
             System.err.println("ERROR WHILE MODIFYING IN TABLE CATEGORY [ERROR MESSAGE: " + e.getMessage() + ", ERROR CAUSE: " + e.getCause() + " ]");
         }
